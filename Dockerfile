@@ -9,8 +9,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && rm -rf /var/lib/apt/lists/*
 
 COPY Gemfile Gemfile.lock ./
-RUN bundle config set --local deployment 'true' && \
-    bundle config set --local without 'development test' && \
+RUN bundle config set --local without 'development test' && \
     bundle install
 
 COPY package.json ./
